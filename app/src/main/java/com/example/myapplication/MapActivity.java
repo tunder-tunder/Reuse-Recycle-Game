@@ -18,6 +18,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.yandex.mapkit.Animation;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
@@ -25,6 +30,7 @@ import com.yandex.mapkit.map.CameraPosition;
 import com.yandex.mapkit.map.IconStyle;
 import com.yandex.mapkit.map.MapObject;
 import com.yandex.mapkit.map.MapObjectTapListener;
+import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.mapkit.mapview.MapView;
 import com.yandex.runtime.image.ImageProvider;
 
@@ -45,6 +51,8 @@ public class MapActivity extends AppCompatActivity {
     private MapView mapview;
     private IconStyle iconstyles;
     private ImageProvider imageProvider;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private static final String TAG = "DebugMap";
 
@@ -70,29 +78,53 @@ public class MapActivity extends AppCompatActivity {
 
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
 
-        // Вывести маркет на карту
-        mapview.getMap().getMapObjects().addPlacemark(new Point(52.280593, 104.277671), imageProvider, iconstyles).addTapListener(new MapObjectTapListener() {
-            @Override
-            public boolean onMapObjectTap(@NonNull MapObject mapObject, @NonNull Point point) {
-                try {
-                    List<Address> addresses = geocoder.getFromLocation(52.280593, 104.277671, 1);
 
-                    Address returnedAddress = addresses.get(0);
+        db.collection("Dumpster")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
 
-                    Intent intent = new Intent(MapActivity.this, DumpsterActivity.class);
-                    intent.putExtra("address", returnedAddress.getAddressLine(0));
+                                Log.d(TAG, document.getId() + " => " + document.getGeoPoint("location"));
 
-                    Log.d(TAG, "Intent → Intent");
+                                // Вывести маркет на карту
+                                PlacemarkMapObject placemarkMapObject = mapview.getMap().getMapObjects().addPlacemark(new Point(document.getGeoPoint("location").getLatitude(), document.getGeoPoint("location").getLongitude()), imageProvider, iconstyles);
+                                placemarkMapObject.setUserData(document.getId());
+                                placemarkMapObject.addTapListener(new MapObjectTapListener() {
+                                    @Override
+                                    public boolean onMapObjectTap(@NonNull MapObject mapObject, @NonNull Point point) {
+                                        try {
+                                            List<Address> addresses = geocoder.getFromLocation(document.getGeoPoint("location").getLatitude(), document.getGeoPoint("location").getLongitude(), 1);
 
-                    startActivity(intent);
+                                            Address returnedAddress = addresses.get(0);
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                                            Intent intent = new Intent(MapActivity.this, DumpsterActivity.class);
+                                            intent.putExtra("address", returnedAddress.getAddressLine(0));
+                                            intent.putExtra("id", (String) placemarkMapObject.getUserData());
 
-                return false;
-            }
-        });
+                                            Log.d(TAG, "Intent → Intent");
+
+                                            startActivity(intent);
+
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        return false;
+                                    }
+                                });
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+
+
+
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -133,13 +165,6 @@ public class MapActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        mapview.onStop();
-        MapKitFactory.getInstance().onStop();
-    }
-
     LocationListener listener = new LocationListener() {
         @Override
         public void onLocationChanged(@NonNull Location location) {
@@ -156,8 +181,6 @@ public class MapActivity extends AppCompatActivity {
         mapview.getMap().getMapObjects().addPlacemark(new Point(location.getLatitude(), location.getLongitude()), imageProvider, iconstyles);
         // Широта
         Log.d(TAG, "Широта → " + String.valueOf(location.getLatitude()));
-
-        // latText.setText(String.valueOf(location.getLatitude()));
 
         // Долгота
         Log.d(TAG, "Долгота → " + String.valueOf(location.getLongitude()));

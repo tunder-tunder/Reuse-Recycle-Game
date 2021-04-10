@@ -1,13 +1,23 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.w3c.dom.Text;
 
@@ -16,7 +26,11 @@ import java.util.List;
 
 public class DumpsterActivity extends AppCompatActivity {
 
-    TextView textViewAddress;
+    private static final String TAG = "DebugMap";
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    TextView textViewAddress, textViewDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +40,7 @@ public class DumpsterActivity extends AppCompatActivity {
         String address = getIntent().getStringExtra("address");
 
         textViewAddress = findViewById(R.id.textViewAddress);
+        textViewDescription = findViewById(R.id.textViewDescription);
 
         ImageSlider imageSlider = findViewById(R.id.slider);
 
@@ -37,6 +52,17 @@ public class DumpsterActivity extends AppCompatActivity {
         imageSlider.setImageList(slideModels,ScaleTypes.FIT);
 
         textViewAddress.setText(address);
+
+        Task<DocumentSnapshot> test = db.collection("Dumpster").document(getIntent().getStringExtra("id")).get();
+
+        test.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                Log.d(TAG, String.valueOf(task.getResult().getData().get("description")));
+                textViewDescription.setText(String.valueOf(task.getResult().getData().get("description")));
+
+            }
+        });
 
     }
 }
