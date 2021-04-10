@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="mishaTeam">short-faced bears</string>
+
+
+    <string name="introTextFirstWelcome">Привет, мой друг!</string>
+    <string name="introIamBuddy">Я - Бадди, твой личный помощник. "\n""\n" Давай вместе сделаем наш город чище ~</string>
+
+    <string name="introDoYouKnow">Знаешь ли ты, насколько важна сортировка и утилизация ненужных старых вещей?</string>
+
+    <string name="introSecondIwillhelpYou">Я помогу стать гуру в этом деле! "\n""\n" Давай повесилмся вместе</string>
+    
+
+    <string name="introTextSecond">Вторая страница с текстом</string>
+    <string name="introTextThird">Третья страница с текстом</string>
 </resources>
