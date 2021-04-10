@@ -19,5 +19,14 @@
             android:layout_height="wrap_content"
             android:text="Карта"
             app:backgroundTint="#FFEB3B" />
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="register with google"
+            app:backgroundTint="#FFEB3B" />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
