@@ -19,5 +19,6 @@
             android:layout_height="wrap_content"
             android:text="Карта"
             app:backgroundTint="#FFEB3B" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
