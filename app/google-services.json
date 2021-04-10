@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "193187899511",
+    "project_id": "recycle-game-1618031285467",
+    "storage_bucket": "recycle-game-1618031285467.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193187899511:android:3b605a8d9e88e5863efe72",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193187899511-nh6vopsk3jpjt4vsu5krp03hh6arrkdb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "253659b26d3f57f919cb8224df9debf3add31cb9"
+          }
+        },
+        {
+          "client_id": "193187899511-4kchhdt7sc8rs82cu9g3t1cu8eb4fbet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb8kria2DF44QFB3yAJGYcY046tGIzocA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193187899511-4kchhdt7sc8rs82cu9g3t1cu8eb4fbet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
