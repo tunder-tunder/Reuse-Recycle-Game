@@ -15,7 +15,7 @@ public class ScoreScreen extends AppCompatActivity {
 
         timer_tv = findViewById(R.id.timerTv);
 
-        timer_tv.setText(MySurfaceView.getTimer());
+        timer_tv.setText( "Time left: " + MySurfaceView.getTimer());
 
     }
 }

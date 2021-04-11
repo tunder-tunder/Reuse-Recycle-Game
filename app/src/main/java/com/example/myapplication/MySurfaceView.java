@@ -117,9 +117,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                     ptimer.setColor(Color.BLACK);
                     ptimer.setTextSize(100);
 
-                    c.drawText(timer, 50,   150, ptimer);
-                    c.drawText(String.valueOf(score), -1*(300 - c.getWidth()),  150, ptimer);
-
                     trash_apple.OnCollisionBin(bin_organic);
                     trash_bottle.OnCollisionBin(bin_organic);
                     trash_plane.OnCollisionBin(bin_organic);
@@ -131,6 +128,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                     trash_apple.OnCollisionBin(bin_plastic);
                     trash_bottle.OnCollisionBin(bin_plastic);
                     trash_plane.OnCollisionBin(bin_plastic);
+                    score +=0;
+                    c.drawText(timer, 50,   150, ptimer);
+                    c.drawText(String.valueOf(score), -1*(300 - c.getWidth()),  150, ptimer);
 
                     trash_apple.move(
                             c,
@@ -151,11 +151,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                     if (score == 200){
                         Paint pt = new Paint();
                         pt.setColor(Color.CYAN);
-                        pt.setTextSize(50);
+                        pt.setTextSize(100);
                         c.drawText("You Won!!", 300, 200, pt);
                         won = true;
                         runFlag=false;
-                        notify();
                         mContext = getContext();
                         Intent intent = new Intent(mContext, ScoreScreen.class);
                         mContext.startActivity(intent);
@@ -271,7 +270,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         int vector = 1;
         int x= vector * dist - 10;
         int y= vector * dist - 10;
-        int dx = 0, dy = 1;
+        int dx = 0, dy = 10;
         Paint paint;
         String status;
         private Bitmap bitmap;
@@ -301,7 +300,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         public void OnCollisionBin(Bin bin) {
             int radius = 10;
             //  else if ((x >= myRect.left && x <= myRect.right) && (y >= myRect.top && y <= myRect.bottom) )
-            if (this.x + 100  == bin.x + 100 && this.y + 100 == bin.y + 100 ) {
+            if (this.x + 100  == bin.x + 100 || this.y + 100 == bin.y + 100 ) {
                 if (this.status == bin.status) {
                     score += 200;
                 }
