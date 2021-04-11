@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="quiz0">Вопрос 1</string>
+    <string-array name="quiz0">
+        <item>В1 вар 1</item>
+        <item>В1 вар 2</item>
+        <item>В1 вар 3</item>
+        <item>В1 вар 4</item>
+    </string-array>
+
+    <string name="quiz1">Вопрос 2</string>
+    <string-array name="quiz1">
+        <item>В2 вар 1</item>
+        <item>В2 вар 2</item>
+        <item>В2 вар 3</item>
+        <item>В2 вар 4</item>
+    </string-array>
+
+    <string name="quiz2">Вопрос 3</string>
+    <string-array name="quiz2">
+        <item>В3 вар 1</item>
+        <item>В3 вар 2</item>
+        <item>В3 вар 3</item>
+        <item>В3 вар 4</item>
+    </string-array>
+
+    <string name="quiz3">Вопрос 4</string>
+    <string-array name="quiz3">
+        <item>В4 вар 1</item>
+        <item>В4 вар 2</item>
+        <item>В4 вар 3</item>
+        <item>В4 вар 4</item>
+    </string-array>
+
+
+
+
+</resources>
