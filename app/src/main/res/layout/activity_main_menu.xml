@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MapActivity">
+    android:background="@color/mainMenu"
+    tools:context=".mainMenu">
 
     <LinearLayout
         android:background="@color/white"
@@ -17,9 +18,9 @@
             android:id="@+id/imageView"
             android:layout_width="256px"
             android:layout_height="256px"
-            android:paddingTop="20px"
             android:paddingLeft="20dp"
-            android:src="@drawable/yandex_logo_ru"
+            android:paddingTop="20px"
+            android:src="@mipmap/ic_head_buddy_foreground"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
 
@@ -80,9 +81,53 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.yandex.mapkit.mapview.MapView
-        android:id="@+id/mapview"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:paddingTop="100dp"
+        android:paddingBottom="100dp"
+        android:paddingRight="50px"
+        android:paddingLeft="50px"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:background="@drawable/bg_round"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Игрулька"
+            android:textColor="#707070"
+            app:backgroundTint="#FFFFFF"
+
+            />
+
+        <Button
+            android:background="@drawable/bg_round"
+            android:id="@+id/button3"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Карта"
+            android:textColor="#707070"
+            app:backgroundTint="#FFFFFF" />
+
+        <Button
+            android:background="@drawable/bg_round"
+            android:id="@+id/button3"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Квиииз"
+            android:textColor="#707070"
+            app:backgroundTint="#FFFFFF" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

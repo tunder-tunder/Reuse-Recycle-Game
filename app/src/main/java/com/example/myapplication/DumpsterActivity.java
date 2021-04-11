@@ -53,6 +53,7 @@ public class DumpsterActivity extends AppCompatActivity {
 
         textViewAddress.setText(address);
 
+        // Вывод данных из бд
         Task<DocumentSnapshot> test = db.collection("Dumpster").document(getIntent().getStringExtra("id")).get();
 
         test.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

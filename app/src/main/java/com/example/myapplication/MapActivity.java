@@ -56,7 +56,7 @@ public class MapActivity extends AppCompatActivity {
 
     private static final String TAG = "DebugMap";
 
-    private final String MAPKIT_API_KEY = "a33be2e7-56d3-45dd-8f46-d620fac09ffb";
+    final String MAPKIT_API_KEY = "a33be2e7-56d3-45dd-8f46-d620fac09ffb";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,11 +184,6 @@ public class MapActivity extends AppCompatActivity {
 
         // Долгота
         Log.d(TAG, "Долгота → " + String.valueOf(location.getLongitude()));
-
-        // lonText.setText(String.valueOf(location.getLongitude()));
-
-        // Время
-        // timeText.setText(new Date(location.getTime()).toString());
     }
 
     protected boolean checkPermission() {
