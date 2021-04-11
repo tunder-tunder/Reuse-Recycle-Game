@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,11 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".UserActivity"></activity>
-        <!-- <activity android:name=".mainMenu"></activity> -->
-        <activity android:name=".DumpsterActivity" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".mainMenu">
+        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".GoogleSignInActivity"></activity>
+        <activity android:name=".GameActivity"></activity>
+        <activity android:name=".ScoreScreen"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
