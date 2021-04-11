@@ -56,7 +56,7 @@ public class MapActivity extends AppCompatActivity {
 
     private static final String TAG = "DebugMap";
 
-    final String MAPKIT_API_KEY = "a33be2e7-56d3-45dd-8f46-d620fac09ffb";
+    private final String MAPKIT_API_KEY = "a33be2e7-56d3-45dd-8f46-d620fac09ffb";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,8 +150,6 @@ public class MapActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-//        Log.d(TAG, String.valueOf(mapview.getMap().getMapObjects()));
 
         if (granted || checkPermission()) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000 * 10, 30, listener);
