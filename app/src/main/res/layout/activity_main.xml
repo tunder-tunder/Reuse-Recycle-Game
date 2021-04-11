@@ -25,7 +25,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="register with google"
-            app:backgroundTint="#FFEB3B" />
+            app:backgroundTint="#45422A" />
+
+        <Button
+            android:id="@+id/game_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="play a sorting game"
+            app:backgroundTint="#45422A" />
 
 
     </LinearLayout>
