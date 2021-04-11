@@ -9,11 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
-import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -38,8 +34,7 @@ public class IntroActivity extends AppCompatActivity {
 
     int pageCount = 1;
 
-    SpringDotsIndicator springDotsIndicator;
-    ViewPager2 viewPager2;
+  
 
 
     @SuppressLint({"UseCompatLoadingForDrawables", "ClickableViewAccessibility"})
@@ -72,6 +67,8 @@ public class IntroActivity extends AppCompatActivity {
                 changePage(pageCount);
             }
         });
+
+      
 
     }
 

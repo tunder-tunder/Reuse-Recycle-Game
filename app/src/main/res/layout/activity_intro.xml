@@ -29,11 +29,11 @@
         android:id="@+id/introImageSecond"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/introPrev"
+        app:layout_constraintEnd_toStartOf="@+id/introImageThird"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toEndOf="@+id/introImageFirst"
+        app:layout_constraintTop_toTopOf="@+id/introPrev" />
 
     <ImageView
         android:id="@+id/introImageThird"
@@ -61,25 +61,24 @@
         android:id="@+id/introPrev"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/chevron"
         android:scaleX="-1"
         app:backgroundTint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/introImageFirst"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
+        app:layout_constraintVertical_bias="0.955" />
 
     <Button
         android:id="@+id/introNext"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/chevron"
         app:backgroundTint="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toBottomOf="@+id/introPrev"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/introImageThird"
         app:layout_constraintTop_toTopOf="@+id/introPrev" />
 
     <TextView
@@ -101,19 +100,25 @@
         android:layout_marginEnd="188dp"
         android:layout_marginBottom="24dp"
         android:rotation="30"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/teddy" />
+        app:srcCompat="@drawable/teddy"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/introSecondDoYouKnow"
-        android:layout_width="214dp"
-        android:layout_height="114dp"
+        android:layout_width="221dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_for_text"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
         android:text="@string/introDoYouKnow"
         android:textColor="@color/text_color"
         android:textSize="18sp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.69"
@@ -144,6 +149,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
