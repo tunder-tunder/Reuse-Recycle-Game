@@ -27,31 +27,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button register;
 
-        register = findViewById(R.id.register_btn);
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GoogleSignInActivity.class);
-
-                startActivity(intent);
-            }
-        });
-
-        Button game;
-
-        game = findViewById(R.id.game_btn);
-
-        game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GameActivity.class);
-
-                startActivity(intent);
-            }
-        });
 
 
     }

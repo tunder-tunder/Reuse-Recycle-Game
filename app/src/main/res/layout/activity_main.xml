@@ -20,20 +20,6 @@
             android:text="Карта"
             app:backgroundTint="#FFEB3B" />
 
-        <Button
-            android:id="@+id/register_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="register with google"
-            app:backgroundTint="#45422A" />
-
-        <Button
-            android:id="@+id/game_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="play a sorting game"
-            app:backgroundTint="#45422A" />
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
